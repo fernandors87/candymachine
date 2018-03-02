@@ -1,6 +1,10 @@
 package com.fernandors87.candymachine.utils
 
+import java.util.regex.Pattern
+
 object StringUtils {
+
+  private val squishPattern = Pattern.compile("\\s+")
 
   /**
     * A substring delimited by the range as index offsets
@@ -34,6 +38,29 @@ object StringUtils {
     else None
   }
 
+  /**
+    * Trim the given string and replace space characters by a single whitespace.
+    *
+    * This method consider a space character any of the following:
+    * - A space character(" ")
+    * - A tab character("\t")
+    * - A carriage return character("\r")
+    * - A new line character("\n")
+    * - A vertical tab character("\x0B")
+    * - A form feed character("\f")
+    *
+    * @example {{{
+    * import com.fernandors87.candymachine.StringUtils._
+    * squish("    there's    no \n free lunch     ") // => "there's no free lunch"
+    * }}}
+    *
+    * @param text the dirty string
+    * @return the clean string
+    */
+  def squish(text: String): String = {
+    squishPattern.matcher(text.trim).replaceAll(" ")
+  }
+
   private def absIndex(text: String, offset: Int): Int = {
     if (offset >= text.length) text.length - 1
     else if (offset >= 0 && offset < text.length) offset
@@ -41,6 +68,3 @@ object StringUtils {
     else 0
   }
 }
-
-
-

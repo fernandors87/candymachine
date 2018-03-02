@@ -8,6 +8,8 @@ trait StringPimps {
 
   implicit class SweetString(under: String) {
 
-    def offset(from: Int, to: Int) = StringUtils.offset(under, from, to)
+    def offset(from: Int, to: Int): Option[String] = StringUtils.offset(under, from, to)
+
+    def squish: String = StringUtils.squish(under)
   }
 }
