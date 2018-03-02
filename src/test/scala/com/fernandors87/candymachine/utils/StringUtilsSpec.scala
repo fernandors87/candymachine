@@ -49,4 +49,23 @@ class StringUtilsSpec extends BaseSpec {
       offset(text, -100, 100) shouldBe Some("abcdef")
     }
   }
+
+  describe(".squish") {
+
+    it("removes space characters from the edge of the string") {
+      squish("  peanuts  ") shouldBe "peanuts"
+      squish("\n\npeanuts\n\n") shouldBe "peanuts"
+    }
+
+    it("removes multiple space characters from the middle of the string") {
+      squish("barber   shop") shouldBe "barber shop"
+      squish("barber \n shop") shouldBe "barber shop"
+      squish("barber \n\nshop") shouldBe "barber shop"
+      squish("barber\n \nshop") shouldBe "barber shop"
+    }
+
+    it("replace non whitespace characters") {
+      squish("barber\nshop") shouldBe "barber shop"
+    }
+  }
 }
