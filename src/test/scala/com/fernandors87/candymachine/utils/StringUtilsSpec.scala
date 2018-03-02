@@ -6,9 +6,9 @@ class StringUtilsSpec extends BaseSpec {
 
   import com.fernandors87.candymachine.utils.StringUtils._
 
-  val text = "abcdef"
-
   describe(".offset") {
+    val text = "abcdef"
+
     it("do not give a substring of an empty string") {
       offset("", 0, 0) shouldBe None
     }

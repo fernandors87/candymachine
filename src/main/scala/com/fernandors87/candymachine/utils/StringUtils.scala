@@ -13,14 +13,14 @@ object StringUtils {
     * while negative values count the offsets from the end
     *
     * @example {{{
-    * import com.fernandors87.candymachine.StringUtils
-    * StringUtils.offset("qwerty", 1, 4)     // => Some("wert")
-    * StringUtils.offset("asdfgh", 1, -2)    // => Some("sdfg")
-    * StringUtils.offset("zxcvbn", -5, 4)    // => Some("xcvb")
-    * StringUtils.offset("ytrewq", -5, -2)   // => Some("trew")
-    * StringUtils.offset("hgfdsa", 2, 100)   // => Some("fdsa")
-    * StringUtils.offset("nbvcxz", -100, -3) // => Some("nbvc")
-    * StringUtils.offset("", 0, 0)           // => None
+    * import com.fernandors87.candymachine.StringUtils._
+    * offset("qwerty", 1, 4)     // => Some("wert")
+    * offset("asdfgh", 1, -2)    // => Some("sdfg")
+    * offset("zxcvbn", -5, 4)    // => Some("xcvb")
+    * offset("ytrewq", -5, -2)   // => Some("trew")
+    * offset("hgfdsa", 2, 100)   // => Some("fdsa")
+    * offset("nbvcxz", -100, -3) // => Some("nbvc")
+    * offset("", 0, 0)           // => None
     * }}}
     *
     * @param text the full string
